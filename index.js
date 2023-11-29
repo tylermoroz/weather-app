@@ -2,6 +2,8 @@ const form = document.querySelector("form");
 const locationInput = document.getElementById("location-input");
 const locationTitle = document.getElementById("location");
 const temperature = document.getElementById("temp");
+const celcius = document.getElementById("celcius");
+const farenheit = document.getElementById("farenheit");
 
 const locationData = async () => {
   const apiData = await fetch(
@@ -9,15 +11,16 @@ const locationData = async () => {
   );
   const response = await apiData.json();
   locationTitle.textContent = `${response.location.name}, ${response.location.region}, ${response.location.country}`;
-  temperature.textContent = `${response.current.temp_c}°C / ${response.current.temp_f}°F`;
-  // console.log(
-  //   `${response.location.name}, ${response.location.region}, ${response.location.country}. Currently ${response.current.temp_c} degrees Celsius.`
-  // );
+  if (farenheit.checked) {
+    temperature.textContent = `${response.current.temp_f}°F`;
+  } else if (celcius.checked) {
+    temperature.textContent = `${response.current.temp_c}°C`;
+  }
   console.log(response);
 };
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  locationData();
+  await locationData();
   form.reset();
 });
