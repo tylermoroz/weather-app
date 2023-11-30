@@ -10,15 +10,19 @@
     <form>
       <label for="location-input">Location:</label>
       <input type="text" id="location-input" />
+      <button>submit</button>
+    </form>
+    <div id="toggle-container">
       <input type="radio" name="temperature" id="celcius" value="celcius" />
       <label for="celcius">°C</label>
       <input type="radio" name="temperature" id="farenheit" value="farenheit" />
       <label for="farenheit">°F</label>
-      <button>submit</button>
-    </form>
-    <div>
+    </div>
+    <div id="location-container">
       <h1 id="location"></h1>
+      <p id="condition"></p>
       <p id="temp"></p>
+      <p id="feels-like"></p>
     </div>
     <script src="index.js"></script>
   </body>
