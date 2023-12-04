@@ -1,6 +1,8 @@
 const form = document.querySelector("form");
 const locationInput = document.getElementById("location-input");
-const locationTitle = document.getElementById("location");
+const locationContainer = document.getElementById("location-container");
+const locationCity = document.getElementById("location-city");
+const locationRegion = document.getElementById("location-region");
 const condition = document.getElementById("condition");
 const temperature = document.getElementById("temp");
 const radios = document.getElementsByName("temperature");
@@ -19,7 +21,9 @@ const locationData = async () => {
 };
 
 const displayData = (res) => {
-  locationTitle.textContent = `${res.location.name}, ${res.location.region}, ${res.location.country}`;
+  locationContainer.style.display = "flex";
+  locationCity.textContent = `${res.location.name}`;
+  locationRegion.textContent = `${res.location.region}, ${res.location.country}`;
   condition.textContent = `${res.current.condition.text}`;
   for (let radio of radios) {
     if (radio.checked && radio.value == "celcius") {

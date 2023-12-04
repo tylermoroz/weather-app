@@ -42,3 +42,33 @@ body {
   padding: 0 5px 0 5px;
   font-size: 14px;
 }
+
+#location-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid grey;
+  border-radius: 25px;
+  padding: 10px;
+  line-height: 0px;
+}
+
+#location-city,
+#location-region {
+  text-decoration: underline;
+}
+
+#temp {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#condition {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+#feels-like {
+  font-style: italic;
+  font-size: 1.3rem;
+}
