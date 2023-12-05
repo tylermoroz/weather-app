@@ -51,6 +51,7 @@ body {
   border-radius: 25px;
   padding: 10px;
   line-height: 0px;
+  background: rgba(255, 255, 255, 0.342);
 }
 
 #location-city {
