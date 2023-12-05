@@ -53,8 +53,7 @@ body {
   line-height: 0px;
 }
 
-#location-city,
-#location-region {
+#location-city {
   text-decoration: underline;
 }
 
