@@ -1,7 +1,7 @@
 html,
 body {
-  height: 100%;
-  width: 100%;
+  height: auto;
+  width: auto;
   margin: 0;
 }
 
@@ -11,6 +11,7 @@ body {
   align-items: center;
   gap: 20px;
   padding: 40px;
+  background-color: rgb(223, 187, 141);
 }
 
 #form {
@@ -51,7 +52,7 @@ body {
   border-radius: 25px;
   padding: 10px;
   line-height: 0px;
-  background: rgba(255, 255, 255, 0.342);
+  background: rgba(255, 255, 255, 0.253);
 }
 
 #location-city {
@@ -63,6 +64,16 @@ body {
   margin-bottom: 1.5rem;
 }
 
+#condition-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#weather-icon {
+  margin-bottom: -1.5rem;
+}
+
 #condition {
   font-size: 1.5rem;
   font-style: italic;
@@ -71,4 +82,9 @@ body {
 #feels-like {
   font-style: italic;
   font-size: 1.3rem;
+}
+
+#last-update {
+  font-style: italic;
+  font-size: 0.8rem;
 }

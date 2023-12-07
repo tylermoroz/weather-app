@@ -3,10 +3,12 @@ const locationInput = document.getElementById("location-input");
 const locationContainer = document.getElementById("location-container");
 const locationCity = document.getElementById("location-city");
 const locationRegion = document.getElementById("location-region");
+const weatherIcon = document.getElementById("weather-icon");
 const condition = document.getElementById("condition");
 const temperature = document.getElementById("temp");
 const radios = document.getElementsByName("temperature");
 const feelsLike = document.getElementById("feels-like");
+const lastUpdate = document.getElementById("last-update");
 const celcius = document.getElementById("celcius");
 const farenheit = document.getElementById("farenheit");
 
@@ -20,11 +22,13 @@ const locationData = async () => {
   toggleTemp(response);
 };
 
-const displayData = (res) => {
+const displayData = async (res) => {
   locationContainer.style.display = "flex";
   locationCity.textContent = `${res.location.name}`;
   locationRegion.textContent = `${res.location.region}, ${res.location.country}`;
+  weatherIcon.src = `${res.current.condition.icon}`;
   condition.textContent = `${res.current.condition.text}`;
+  lastUpdate.textContent = `Last update: (local time) ${res.current.last_updated}`;
   for (let radio of radios) {
     if (radio.checked && radio.value == "celcius") {
       temperature.textContent = `${res.current.temp_c}°C`;
