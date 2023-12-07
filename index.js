@@ -13,16 +13,32 @@ const celcius = document.getElementById("celcius");
 const farenheit = document.getElementById("farenheit");
 
 const locationData = async () => {
-  const apiData = await fetch(
-    `http://api.weatherapi.com/v1/current.json?key=58609b6df0f2402e82c150303231811&q=${locationInput.value}`
-  );
-  const response = await apiData.json();
-  console.log(response);
-  displayData(response);
-  toggleTemp(response);
+  loading();
+  try {
+    const apiData = await fetch(
+      `http://api.weatherapi.com/v1/current.json?key=58609b6df0f2402e82c150303231811&q=${locationInput.value}`
+    );
+    const response = await apiData.json();
+    displayData(response);
+    toggleTemp(response);
+    console.log(response);
+  } catch (error) {
+    console.error(error.toString());
+  }
 };
 
-const displayData = async (res) => {
+const loading = () => {
+  locationContainer.style.display = "flex";
+  locationCity.textContent = "Loading location data...";
+  locationRegion.textContent = "";
+  weatherIcon.src = "";
+  condition.textContent = "";
+  lastUpdate.textContent = "";
+  temperature.textContent = "";
+  feelsLike.textContent = "";
+};
+
+const displayData = (res) => {
   locationContainer.style.display = "flex";
   locationCity.textContent = `${res.location.name}`;
   locationRegion.textContent = `${res.location.region}, ${res.location.country}`;
